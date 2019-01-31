@@ -250,6 +250,11 @@ inline bool read_landmark_data(std::string filename,
 
 inline double multiv_prob(double sig_x, double sig_y, double x_obs, double y_obs,
                    double mu_x, double mu_y) {
+
+  /**
+   * Calculate 2D Gaussian Probability distribution
+   *
+   */
   // calculate normalization term
   double gauss_norm;
   gauss_norm = 1 / (2 * M_PI * sig_x * sig_y);
