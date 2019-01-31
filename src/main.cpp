@@ -71,13 +71,13 @@ int main() {
 
             pf.init(sense_x, sense_y, sense_theta, sigma_pos);
             assert(!pf.particles.empty());
-            std::cout<<"init"<<std::endl;
+            // std::cout<<"init"<<std::endl;
           } else {
             // Predict the vehicle's next state from previous 
             //   (noiseless control) data.
             double previous_velocity = std::stod(j[1]["previous_velocity"].get<string>());
             double previous_yawrate = std::stod(j[1]["previous_yawrate"].get<string>());
-            std::cout<<"Going to Predict"<<std::endl;
+            // std::cout<<"Going to Predict"<<std::endl;
 
             pf.prediction(delta_t, sigma_pos, previous_velocity, previous_yawrate);
           }
@@ -111,10 +111,10 @@ int main() {
           }
 
           // Update the weights and resample
-          std::cout<<"going to update"<<std::endl;
+          // std::cout<<"going to update"<<std::endl;
           pf.updateWeights(sensor_range, sigma_landmark, noisy_observations, map);
           //assert(!pf.particles.empty());
-          std::cout<<"going to resample"<<std::endl;
+          // std::cout<<"going to resample"<<std::endl;
           pf.resample();
           //assert(!pf.particles.empty());
 
